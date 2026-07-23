@@ -1,0 +1,30 @@
+version: 1
+
+authorization:
+  id: AUTH-DOCS-0001
+  objective: >
+    Update project documentation without changing credentials,
+    repository internals, or executable code.
+  declared_actor: codex
+  scope:
+    allow:
+      - "docs/**"
+      - "README.md"
+    deny:
+      - ".git/**"
+      - ".env"
+      - ".env.*"
+      - "**/*.pem"
+      - "**/*.key"
+  operations:
+    allow:
+      - create
+      - modify
+  constraints:
+    max_effects: 200
+    expires_at: "2027-01-01T00:00:00Z"
+  status: ACTIVE
+
+observation:
+  exclude: []
+
